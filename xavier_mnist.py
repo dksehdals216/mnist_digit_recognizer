@@ -17,7 +17,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 #params
-training_epochs = 1000
+training_epochs = 15
 batch_size = 100
 learning_rate = 0.001
 node_n = 256
@@ -30,18 +30,19 @@ X = tf.placeholder(tf.float32, [None, 784])
 Y = tf.placeholder(tf.float32, [None, nb_classes])
 
 #layer1
-W1 = tf.Variable(tf.random_normal([784, node_n]))
+W1 = tf.get_variable("W1", shape=[784, 256], initializer=tf.contrib.layers.xavier_initializer())
 b1 = tf.Variable(tf.random_normal([node_n]))
 layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
 
 #layer2
-W2 = tf.Variable(tf.random_normal([node_n, node_n]))
+W2 = tf.get_variable("W2", shape=[node_n, 256], initializer=tf.contrib.layers.xavier_initializer())
 b2 = tf.Variable(tf.random_normal([node_n]))
 layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
 
 #layer3
-W3 = tf.Variable(tf.random_normal([node_n,10]))
+W3 = tf.get_variable("W3", shape=[node_n, nb_classes], initializer=tf.contrib.layers.xavier_initializer())
 b3 = tf.Variable(tf.random_normal([nb_classes]))
+
 #Hypothesis using softmax
 hypothesis = (tf.matmul(layer2, W3) + b3)
 
