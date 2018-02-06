@@ -5,10 +5,19 @@ Created by Dongmin An
 
 
 Goal of the project is to practice implementing different types of methods of
-basic neural net algorithms such as regression, ANN, CNN, etc.
+basic neural net algorithms such as regression, ANN, CNN, etc. Or for 
+methods of optimization, such as dropout, regularization, etc.
 
 MNIST data is imported using tensorflow tutorials.
 
-Skeleton of code uses tensorflow tutorial as basis, and also
-credit for Sung Kim's tutorial.
+Skeleton of code bases itself on other tutorials such as tensorflows,
+or video lectures from youtube.
+
+links:
+
+    Sung Kim's tutorial:
+        https://github.com/hunkim/DeepLearningZeroToAll
+
+    tensorflow tutorial:
+        https://www.tensorflow.org/tutorials/layers
 
